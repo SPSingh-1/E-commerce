@@ -2,7 +2,7 @@ import React from 'react'
 import { FaShippingFast } from "react-icons/fa";
 
 import HomeCatSlider from "../../components/HomeCatSlider"
-// import HomeSlider from "../../components/HomeSlider"
+import HomeSlider from "../../components/HomeSlider"
 import AdsBannerSlider from "../../components/AdsBannerSlider";
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -18,9 +18,9 @@ import 'swiper/css/navigation';
 // import required modules
 import {Navigation } from 'swiper/modules';
 import BlogItem from '../../components/BlogItem';
-import Footer from '../../components/Footer';
 import HomeBannerV2 from '../../components/HomeSliderV2';
 import BannerBoxV2 from '../../components/BannerBoxV2';
+import AdsBannerSliderV2 from '../../components/AdsBannerSliderV2';
 
 const Home = () => {
   const [value, setValue] = React.useState(0);
@@ -30,10 +30,11 @@ const Home = () => {
   };
   return (
     <div>
-      {/* <HomeSlider/> */}
-      <section className=''>
+      <HomeSlider/>
+      <section className='mt-10'>
         <div className='container flex gap-5'>
           <div className='part1 w-[65%]'>
+            
             <HomeBannerV2/>
           </div>
 
@@ -101,7 +102,7 @@ const Home = () => {
             <p className="font-bold text-[30px]">-ONLY $200</p>
           </div>
 
-          <AdsBannerSlider items={4}/>
+          <AdsBannerSliderV2 items={4}/>
         </div>
       </section>
 
@@ -164,7 +165,6 @@ const Home = () => {
       </section>
 
 
-      <Footer/>
     </div>
   )
 }

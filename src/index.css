@@ -11,8 +11,17 @@ body{
     font-family: "Montserrat", serif;
     font-optical-sizing: auto;
     background: #f5f0f0;
-    color: rgba(0,0,0,0.9);
+    color: #3e3e3e;
     overflow-x: hidden;
+}
+p{
+    font-size: 14 px;
+    line-height: 25px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+h1,h2,h3,h4,h5,h6{
+    font-weight: 600;
 }
 .container{
     width: 95%;
@@ -127,6 +136,9 @@ nav ul button:hover{
     font-size: 16px;
     padding: 7px,20px !important;
 }
+.btn-org:hover{
+    background: #171717 !important;
+}
 footer form input::placeholder{
     font-size: 14px;
 }
@@ -171,4 +183,75 @@ footer form input::placeholder{
 }
 .homeSliderV2 .info .btn_{
     transition-duration: 2.3s;
+}
+
+.MuiCheckbox-root{padding: 6px !important;}
+
+.ReactCollapse--collapse {
+    transition: height 400ms;
+}
+
+.itemViewActions button.active svg{
+    color: #ff5252 !important;
+    opacity: 1;
+}
+.Mui-selected.MuiPaginationItem-page{
+    background: #ff5252 !important;
+    color: #f5f0f0 !important;
+}
+
+.zoomProductSliderThumbs .swiper-wrapper{
+   padding-top: 38px !important;
+}
+.zoomProductSliderThumbs .swiper-button-next{
+    bottom: 0px !important;
+    right: inherit !important;
+    top: inherit !important;
+    width: 100% !important;
+    height: 30px !important;
+    border-radius: 0px !important;
+}
+.zoomProductSliderThumbs .swiper-button-prev{
+    top: 10px !important;
+    left: 0 !important;
+     width: 100% !important;
+    height: 30px !important;
+    border-radius: 0px !important;
+}
+.zoomProductSliderThumbs .swiper-button-next::after{
+    transform: rotate(90deg);
+}
+.zoomProductSliderThumbs .swiper-button-prev::after{
+    transform: rotate(90deg);
+}
+.productContent .action button{
+    min-width: 40px !important;
+    border: 1px solid rgba(0,0,0,0.1) !important;
+    height: 30px !important;
+    color: rgba(0,0,0,0.7) !important;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.iiz div{
+    width: 100% !important;
+}
+.iiz div:first-child{
+    border-radius: 10px !important;
+    overflow: hidden !important;
+}
+.reviewScroll::-webkit-scrollbar{
+    width: 5px !important;
+}
+.reviewScroll::-webkit-scrollbar-thumb{
+    background: #ccc !important;
+
+}
+
+.productDetailsModal .MuiDialogContent-root{
+        padding: 0px;
 }

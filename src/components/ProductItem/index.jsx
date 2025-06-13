@@ -8,16 +8,21 @@ import { IoGitCompareOutline } from "react-icons/io5";
 import { MdOutlineZoomOutMap } from "react-icons/md";
 import { IoMdOpen } from "react-icons/io";
 import Tooltip from '@mui/material/Tooltip';
+import { useContext } from "react";
+import { MyContext } from "../../App";
 
 
 
 
 const ProductItem = () => {
+
+    const context = useContext(MyContext);
+
   return (
     <div className="productsSlider py-5 w-full max-w-screen-xl mx-auto">
         <div className=" border-1 border-[rgba(0,0,0,0.1)] rounded-lg shadow-md p-2 w-50">
             <div className="group relative">
-                <Link to="/">
+                <Link to="/productDetails/84758">
                     <div className="img  h-[220px] overflow-hidden">
                         <img
                             alt="image"
@@ -38,9 +43,9 @@ const ProductItem = () => {
 
                 {/* Right side tags of image  */}
 
-                <div className="actions absolute top-[-200px] right-[5px] z-50 flex items-center gap-2 flex-col w-[50px] transition-all duration-500 group-hover:top-[10px] opacity-0 hover:opacity-100">
+                <div className="actions absolute top-[-10px] right-[5px] z-50 flex items-center gap-2 flex-col w-[50px] transition-all duration-500 group-hover:top-[10px] opacity-0 hover:opacity-100">
                     <Tooltip title="Details" placement="left-start">
-                        <Button className="!w-[30px] !h-[30px] !text-black !min-w-[30px] !rounded-full !bg-white hover:!bg-[#ff5252]  group">
+                        <Button className="!w-[30px] !h-[30px] !text-black !min-w-[30px] !rounded-full !bg-white hover:!bg-[#ff5252]  group" onClick={()=>context.setOpenProductDetailsModal(true)}>
                             <MdOutlineZoomOutMap className="text-[18px] hover:text-white"/>
                         </Button>
                     </Tooltip>
@@ -66,7 +71,7 @@ const ProductItem = () => {
                 </div>
             </div>
             <div className="p-3 info py-5 ">
-                <h6 className="text-[13px]"><Link to="/" className="link transition-all">HP branded laptop</Link></h6>
+                <h6 className="text-[13px] !font-[400]"><Link to="/" className="link transition-all">HP branded laptop</Link></h6>
                 <h2 className="font-semibold text-lg title mt-1 text-[rgba(0,0,0,0.9)]"><Link to="/" className="link transition-all text-[(#000)]">HP Laptop</Link></h2>
                 <p className="text-green-600">In Stock</p>
                 <div className="flex text-yellow-400 mt-1">
@@ -74,7 +79,7 @@ const ProductItem = () => {
                 </div>
                 <div className="flex items-center gap-4">
                     <span className="oldPrice text-gray-500 text-[16px] font-bold line-through">$180.00</span>
-                    <span className="oldPrice text-red-600 font-[600]">$150.00</span>
+                    <span className="oldPrice text-red-600 text-[16px] font-[600]">$150.00</span>
                 </div>
                 </div>
     </div>
