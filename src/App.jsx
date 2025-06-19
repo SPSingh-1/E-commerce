@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import ProductListing from './Pages/ProductListing';
 import ProductDetails from './Pages/ProductDetails';
 import { createContext, useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -16,6 +17,16 @@ import DialogContent from '@mui/material/DialogContent';
 import ProductZoom from './components/ProductZoom';
 import { IoMdClose } from "react-icons/io";
 import ProductDetailsComponent from './components/ProductDetailsComponent';
+import Login from './Pages/Login';
+import Register from './Pages/Register';
+import CartPage from './Pages/Cart';
+import Verify from './Pages/Verify';
+import ForgotPassword from './Pages/ForgotPassword';
+import Checkout from './Pages/Checkout';
+import MyAccount from './Pages/MyAccount';
+import MyList from './Pages/MyList';
+import Orders from './Pages/Orders';
+
 
 
 
@@ -24,17 +35,38 @@ const MyContext = createContext();
 function App() {
 
   const [openProductDetailsModal, setOpenProductDetailsModal] = useState(false);
-  const [fullWidth, setFullWidth] = useState(true);
-  const [maxWidth, setMaxWidth] = useState('lg');
+  const [fullWidth ] = useState(true);
+  const [maxWidth ] = useState('lg');
+  const [openCartPanel, setOpenCartPanel] = useState(false)
+  const [isLogin, setIsLogin] = useState(true)
 
   const handleCloseProductDetailsModal = () => {
     setOpenProductDetailsModal(false);
   };
 
+  const toggleCartPanel = (newOpen) => () => {
+    setOpenCartPanel(newOpen);
+  };
+  const openAlertBox=(status, msg)=>{
+    if(status==="success"){
+      toast.success(msg);
+    }
+    if(status==="error"){
+      toast.error(msg);
+    }
+  }
+
   const values = {
-    setOpenProductDetailsModal
+    setOpenProductDetailsModal,
+    setOpenCartPanel,
+    toggleCartPanel,
+    openCartPanel,
+    openAlertBox,
+    isLogin,
+    setIsLogin
   };
 
+   
   return (
     <>
       <BrowserRouter>
@@ -44,11 +76,20 @@ function App() {
           <Route path={"/"} exact={true} element={<Home/>}/>
           <Route path={"/productListing"} exact={true} element={<ProductListing/>}/>
           <Route path={"/productDetails/:id"} exact={true} element={<ProductDetails/>}/>
+          <Route path={"/login"} exact={true} element={<Login/>}/>
+          <Route path={"/register"} exact={true} element={<Register/>}/>
+          <Route path={"/cart"} exact={true} element={<CartPage/>}/>
+          <Route path={"/verify"} exact={true} element={<Verify/>}/>
+          <Route path={"/forgot-password"} exact={true} element={<ForgotPassword/>}/>
+          <Route path={"/checkout"} exact={true} element={<Checkout/>}/>
+          <Route path={"/my-account"} exact={true} element={<MyAccount/>}/>
+          <Route path={"/my-list"} exact={true} element={<MyList/>}/>
+          <Route path={"/my-orders"} exact={true} element={<Orders/>}/>
         </Routes>
          <Footer/>
         </MyContext.Provider>
       </BrowserRouter>
-
+      <Toaster/>
 
       <Dialog
         open={openProductDetailsModal}
@@ -72,6 +113,7 @@ function App() {
             </div>
         </DialogContent>
       </Dialog>
+
     </>
   )
 }
